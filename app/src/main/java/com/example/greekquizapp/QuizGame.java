@@ -65,7 +65,7 @@ public class QuizGame extends AppCompatActivity {
         questionNumber=findViewById(R.id.questionNumberView);
         theQuestion=findViewById(R.id.questionView);
 
-        Collections.shuffle(questions);
+       /* Collections.shuffle(questions);
         randomNumber=rand.nextInt(questions.size());
         randomQuestion=questions.get(randomNumber);
         questions.remove(randomQuestion);
@@ -74,19 +74,10 @@ public class QuizGame extends AppCompatActivity {
         optionB.setClickable(false);
         optionC.setClickable(false);
         optionD.setClickable(false);
+        */
 
-        countDownTimer=new CountDownTimer(20000,1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                time--;
 
-            }
 
-            @Override
-            public void onFinish() {
-
-            }
-        };
 
 
 
