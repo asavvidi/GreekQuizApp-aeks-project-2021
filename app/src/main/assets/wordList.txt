@@ -63,7 +63,7 @@
 οικοδομήσουμε build
 αυτο self
 γη earth
-Ο πατέρας father
+πατέρας father
 κάθε any
 νέα new
 εργασία work
@@ -464,7 +464,7 @@ drive drive
 κυνήγι hunt
 πιθανή probable
 κρεβάτι bed
-Ο αδελφός brother
+αδελφός brother
 αυγό egg
 βόλτα ride
 κυττάρων cell

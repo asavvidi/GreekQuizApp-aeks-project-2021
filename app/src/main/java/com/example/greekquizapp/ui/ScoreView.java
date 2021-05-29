@@ -24,8 +24,8 @@ public class ScoreView extends Activity {
         int correct = getIntent().getIntExtra("correct",0);
         int wrong  = getIntent().getIntExtra("wrong",0);
 
-        correctText.setText("T: " + Integer.toString(correct));
-        wrongText.setText("F: " + Integer.toString(wrong));
+        correctText.setText("Σωστά / True: " + Integer.toString(correct));
+        wrongText.setText("Λάθος / False: " + Integer.toString(wrong));
         mainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
