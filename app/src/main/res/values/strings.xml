@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">QuizApp</string>
-    <string name="en_gr">EN-GR</string>
-    <string name="gr_en">GR-EN</string>
+    <string name="en_gr">ENGLISH - GREEK</string>
+    <string name="gr_en">GREEK - ENGLISH</string>
     <string name="name">Name</string>
     <string name="textview">TextView</string>
-    <string name="oh_no_no">OH NO NO</string>
     <string name="main_menu">Main Menu</string>
+    <string name="lang_pair">Choose your preferred language pair</string>
 </resources>
