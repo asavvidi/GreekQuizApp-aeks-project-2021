@@ -103,7 +103,6 @@ public class DbHelper extends SQLiteOpenHelper {
             i++;
 
         }
-
         return entries;
     }
 

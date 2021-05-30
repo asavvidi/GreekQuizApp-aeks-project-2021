@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
             db.fillDbFromFile();
             entries = new DictEntry[entryPool];
         }
-
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

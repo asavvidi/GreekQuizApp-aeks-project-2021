@@ -120,7 +120,6 @@ public class QuestionView extends Activity {
                 }
             }
         });
-
     }
     private void chooseOption(int number)
     {

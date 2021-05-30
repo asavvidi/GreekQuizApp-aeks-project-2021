@@ -19,10 +19,6 @@ public class DictEntry implements Serializable {
 
     }
 
-
-
-
-
     public String getSource() {
         return source;
     }
@@ -33,7 +29,6 @@ public class DictEntry implements Serializable {
     public int getId() {
         return id;
     }
-
 
 
 }

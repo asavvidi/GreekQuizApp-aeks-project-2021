@@ -38,7 +38,6 @@ public class QuestionMaker {
         }
         return new Question(question,options.get(0),options.get(1),options.get(2),options.get(3));
 
-
     }
 
 }
