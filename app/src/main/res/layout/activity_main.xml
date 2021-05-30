@@ -50,7 +50,7 @@
         android:layout_height="50dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Το όνομά σας / Your name"
+        android:hint="Please enter your name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

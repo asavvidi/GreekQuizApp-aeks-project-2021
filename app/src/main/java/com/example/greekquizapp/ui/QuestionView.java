@@ -27,6 +27,7 @@ public class QuestionView extends Activity {
     private int correct, wrong;
     private ArrayList<Button> buttons;
     private String lastAnswer, correctAnswer;
+    private String name;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,6 +35,8 @@ public class QuestionView extends Activity {
         answerChosen = false;
         correct = 0;  wrong = 0;
         buttons = new ArrayList<>();
+
+        name = getIntent().getStringExtra("name");
 
         entries = (DictEntry[]) getIntent().getSerializableExtra("entries");
         source = getIntent().getBooleanExtra("source",true);
@@ -97,6 +100,9 @@ public class QuestionView extends Activity {
                         score.putExtra("correct",correct);
                         score.putExtra("wrong",wrong);
                         score.putExtra("entries", entries);
+
+                        score.putExtra("name",name);
+
                         startActivity(score);
 
 

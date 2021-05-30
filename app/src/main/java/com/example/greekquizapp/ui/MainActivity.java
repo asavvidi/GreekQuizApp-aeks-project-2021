@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 entries = db.getWordList(entryPool,true);
                 intent.putExtra("source", true);
                 intent.putExtra("entries",entries);
+
+                name = nameInput.getText().toString(); //new
+                intent.putExtra("name", name); //new
+
                 startActivity(intent);
             }
         });
@@ -64,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
                 entries = db.getWordList(entryPool,false);
                 intent.putExtra("source", false);
                 intent.putExtra("entries",entries);
+
+                name = nameInput.getText().toString(); //new
+                intent.putExtra("name", name); //new
+
                 startActivity(intent);
             }
         });

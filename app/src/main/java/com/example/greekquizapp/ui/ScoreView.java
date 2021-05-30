@@ -26,8 +26,28 @@ public class ScoreView extends Activity {
         int wrong  = getIntent().getIntExtra("wrong",0);
         final DictEntry[] entries = (DictEntry[]) getIntent().getSerializableExtra("entries");
 
-        correctText.setText("True: " + Integer.toString(correct));
-        wrongText.setText("False: " + Integer.toString(wrong));
+        final TextView nameS = (TextView) findViewById(R.id.textName);
+
+
+        String name = getIntent().getStringExtra("name");
+
+        correctText.setText("Correct: " + Integer.toString(correct));
+        wrongText.setText("Wrong: " + Integer.toString(wrong));
+
+
+        if(correct >= 19) {
+            nameS.setText("Well done, " + name + "!");
+
+        }
+        else if(correct >=15){
+            nameS.setText("Good job, " + name + "!");
+        }
+        else if(correct >= 10){
+            nameS.setText("Not bad " + name + "!");
+        }
+        else
+            nameS.setText("Keep practising, " + name + "!");
+
         mainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
