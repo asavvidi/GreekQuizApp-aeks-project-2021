@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 import com.example.greekquizapp.R;
+import com.example.greekquizapp.dbcontrol.DictEntry;
 
 public class ScoreView extends Activity {
 
@@ -23,12 +24,16 @@ public class ScoreView extends Activity {
         final Intent main = new Intent(this, MainActivity.class);
         int correct = getIntent().getIntExtra("correct",0);
         int wrong  = getIntent().getIntExtra("wrong",0);
+        final DictEntry[] entries = (DictEntry[]) getIntent().getSerializableExtra("entries");
 
-        correctText.setText("Σωστά / True: " + Integer.toString(correct));
-        wrongText.setText("Λάθος / False: " + Integer.toString(wrong));
+
+        correctText.setText("T: " + Integer.toString(correct));
+        wrongText.setText("F: " + Integer.toString(wrong));
         mainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                main.putExtra("dbCreated", true);
+                main.putExtra("entries",entries);
                 startActivity(main);
             }
         });

@@ -15,9 +15,10 @@ import java.util.ArrayList;
 public class DbHelper extends SQLiteOpenHelper {
     private final String fileName = "wordList.txt";
     private Context context;
-   private final String tableName = "words";
+    private final String tableName = "words";
+
     public DbHelper(Context context) {
-        super(context, "words", null,1);
+        super(context, "words", null, 1);
 
         this.context = context;
     }
@@ -32,20 +33,19 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
-    public void fillDbFromFile()
-    {
+
+    public void fillDbFromFile() {
         SQLiteDatabase db = this.getWritableDatabase();
         BufferedReader reader;
         try {
             InputStream inputStream = context.getAssets().open(fileName);
             reader = new BufferedReader(new InputStreamReader(inputStream));
             String line = "";
-            while(line!= null)
-            {
+            while (line != null) {
 
                 line = reader.readLine();
-                if(line!=null) {
-                    if(line.length() <= 1)
+                if (line != null) {
+                    if (line.length() <= 1)
                         continue;
                     ContentValues values = new ContentValues();
                     String[] columns = line.split(" ", 2);
@@ -60,48 +60,59 @@ public class DbHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+
+    public void fillDbFromArray(DictEntry[] entries) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        for (DictEntry e : entries) {
+            ContentValues values = new ContentValues();
+            values.put("source", e.getSource());
+            values.put("target", e.getTarget());
+
+            db.insert(tableName, null, values);
+        }
+    }
+
     // source == true for source -> target
     //          false  for target -> source
-    public  DictEntry []  getWordList(int size, boolean source)
-    {
-     SQLiteDatabase db = this.getReadableDatabase();
-          DictEntry [] entries = new DictEntry[size];
+    public DictEntry[] getWordList(int size, boolean source) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        DictEntry[] entries = new DictEntry[size];
         ArrayList<String> words = new ArrayList<>();
-     String [] projection = {
-            "id",
-            "source",
-            "target"
+        String[] projection = {
+                "id",
+                "source",
+                "target"
         };
 
         Cursor cursor;
-     int i = 0;
+        int i = 0;
 
-        cursor = db.query(tableName, projection,null,null,null,null, "RANDOM()",null);
-        while(i < size)
-      {
-              cursor.moveToNext();
-              while(words.contains(cursor.getString(cursor.getColumnIndex("source"))))
-                  cursor.moveToNext();
-          int sourceIndex = cursor.getColumnIndex("source");
-          int targetIndex = cursor.getColumnIndex("target");
-          DictEntry entry = source ? new DictEntry(cursor.getInt(0), cursor.getString(sourceIndex), cursor.getString(targetIndex)) :
-                                     new DictEntry(cursor.getInt(0), cursor.getString(targetIndex), cursor.getString(sourceIndex));
+        cursor = db.query(tableName, projection, null, null, null, null, "RANDOM()");
+        while (i < size) {
+            cursor.moveToNext();
+            while (words.contains(cursor.getString(cursor.getColumnIndex("source"))))
+                cursor.moveToNext();
+            int sourceIndex = cursor.getColumnIndex("source");
+            int targetIndex = cursor.getColumnIndex("target");
+            DictEntry entry = source ? new DictEntry(cursor.getInt(0), cursor.getString(sourceIndex), cursor.getString(targetIndex)) :
+                    new DictEntry(cursor.getInt(0), cursor.getString(targetIndex), cursor.getString(sourceIndex));
 
-          entries[i] = entry;
-          words.add(entry.getSource());
-          i++;
+            entries[i] = entry;
+            words.add(entry.getSource());
+            i++;
 
-      }
+        }
 
-return entries  ;
+        return entries;
     }
-    public String getRandomWord(String column)
-    {
+
+    public String getRandomWord(String column) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.rawQuery("select " + column +" from "+ tableName+ " order by random() limit 1 ",null);
+        Cursor c = db.rawQuery("select " + column + " from " + tableName + " order by random() limit 1 ", null);
         c.moveToFirst();
 
-        return  c.getString(0);
+        return c.getString(0);
 
     }
 }

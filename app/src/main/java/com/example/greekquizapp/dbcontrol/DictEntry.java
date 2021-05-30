@@ -1,7 +1,10 @@
 package com.example.greekquizapp.dbcontrol;
 
-public class DictEntry {
+import android.os.Parcel;
 
+import java.io.Serializable;
+
+public class DictEntry implements Serializable {
 
     private String source, target;
     private int id;
@@ -16,6 +19,10 @@ public class DictEntry {
 
     }
 
+
+
+
+
     public String getSource() {
         return source;
     }
@@ -26,6 +33,7 @@ public class DictEntry {
     public int getId() {
         return id;
     }
+
 
 
 }

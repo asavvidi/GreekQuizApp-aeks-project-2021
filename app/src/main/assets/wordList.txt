@@ -31,7 +31,7 @@
 λιμάνι port
 μεγάλες large
 σημάνει spell
-προσθέσετε add
+προσθέσε add
 ακόμη even
 γη land
 εδώ here
@@ -140,7 +140,7 @@
 δείτε look
 περισσότερα more
 ημέρα day
-θα μπορούσε could
+μπορούσε could
 πηγαίνω go
 έρχονται come
 έκανε did
@@ -165,9 +165,7 @@
 βρείτε find
 κεφάλι head
 στάση stand
-δική own
 σελίδα page
-θα πρέπει να should
 χώρα country
 βρέθηκαν found
 σχολείο school
@@ -194,7 +192,6 @@
 αγρόκτημα farm
 σκληρά hard
 αρχή start
-θα μπορούσε might
 ιστορία story
 πριόνι saw
 σήμερα far
@@ -242,7 +239,6 @@
 παιδιά children
 αρχίσει begin
 πήρε got
-με τα πόδια walk
 παράδειγμα example
 ευκολία ease
 χαρτί paper
@@ -355,7 +351,6 @@
 φέρω bring
 ναί yes
 μακρινές distant
-συμπληρώστε fill
 ανατολικά east
 ζωγραφίσει paint
 γλώσσα language
@@ -381,7 +376,6 @@
 τομέα field
 ανάπαυση rest
 σωστός correct
-θέση able
 λίρα pound
 done done
 ομορφιά beauty
@@ -415,7 +409,6 @@ drive drive
 ώρα hour
 καλύτερη better
 αληθής true
-κατά τη διάρκεια της during
 εκατό hundred
 πέντε five
 θυμηθείτε remember
@@ -464,7 +457,6 @@ drive drive
 κυνήγι hunt
 πιθανή probable
 κρεβάτι bed
-αδελφός brother
 αυγό egg
 βόλτα ride
 κυττάρων cell

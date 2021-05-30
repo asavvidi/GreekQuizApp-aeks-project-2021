@@ -34,11 +34,11 @@ public class QuestionView extends Activity {
         answerChosen = false;
         correct = 0;  wrong = 0;
         buttons = new ArrayList<>();
-         db = new DbHelper(this);
-        source = getIntent().getBooleanExtra("source",true);
 
-        db.fillDbFromFile();
-        entries =  db.getWordList(questionPool,source);
+        entries = (DictEntry[]) getIntent().getSerializableExtra("entries");
+        source = getIntent().getBooleanExtra("source",true);
+        db = new DbHelper(this);
+        db.fillDbFromArray(entries);
         super.onCreate(savedInstanceState);
         final int[] questionNumber = {1};
         final QuestionMaker questionMaker = new QuestionMaker(db,entries,source);
@@ -75,7 +75,7 @@ public class QuestionView extends Activity {
                 @Override
                 public void onClick(View view) {
 
-                        chooseOption(tempI);
+                    chooseOption(tempI);
 
                 }
             });
@@ -96,6 +96,7 @@ public class QuestionView extends Activity {
                     if (questionNumber[0] >= questionPool ) {
                         score.putExtra("correct",correct);
                         score.putExtra("wrong",wrong);
+                        score.putExtra("entries", entries);
                         startActivity(score);
 
 

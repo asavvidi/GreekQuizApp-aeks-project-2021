@@ -83,7 +83,7 @@
         android:id="@+id/imageView"
         android:layout_width="400dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/greeceukflag"
+        android:src="@drawable/greeceukflag"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,6 +93,6 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="16dp"
 
-    />
+        android:contentDescription="TODO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
