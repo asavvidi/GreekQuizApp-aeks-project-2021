@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        Button b1 = findViewById(R.id.cn);
+        Button b1 = findViewById(R.id.gr);
         Button b2 = findViewById(R.id.en);
         final Intent intent = new Intent(this,QuestionView.class);
         final DbHelper db = new DbHelper(this);
