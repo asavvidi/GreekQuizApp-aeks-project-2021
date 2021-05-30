@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class DbHelper extends SQLiteOpenHelper {
     private final String fileName = "wordList.txt";
     private Context context;
-   private final String tableName = "words";
+    private final String tableName = "words";
     public DbHelper(Context context) {
         super(context, "words", null,1);
 
@@ -60,40 +60,52 @@ public class DbHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
     }
+    public void fillDbFromArray(DictEntry [] entries)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        for(DictEntry e : entries) {
+            ContentValues values = new ContentValues();
+            values.put("source",e.getSource());
+            values.put("target",e.getTarget());
+
+            db.insert(tableName, null,values);
+        }
+    }
     // source == true for source -> target
     //          false  for target -> source
     public  DictEntry []  getWordList(int size, boolean source)
     {
-     SQLiteDatabase db = this.getReadableDatabase();
-          DictEntry [] entries = new DictEntry[size];
+        SQLiteDatabase db = this.getReadableDatabase();
+        DictEntry [] entries = new DictEntry[size];
         ArrayList<String> words = new ArrayList<>();
-     String [] projection = {
-            "id",
-            "source",
-            "target"
+        String [] projection = {
+                "id",
+                "source",
+                "target"
         };
 
         Cursor cursor;
-     int i = 0;
+        int i = 0;
 
-        cursor = db.query(tableName, projection,null,null,null,null, "RANDOM()",null);
+        cursor = db.query(tableName, projection,null,null,null,null, "RANDOM()");
         while(i < size)
-      {
-              cursor.moveToNext();
-              while(words.contains(cursor.getString(cursor.getColumnIndex("source"))))
-                  cursor.moveToNext();
-          int sourceIndex = cursor.getColumnIndex("source");
-          int targetIndex = cursor.getColumnIndex("target");
-          DictEntry entry = source ? new DictEntry(cursor.getInt(0), cursor.getString(sourceIndex), cursor.getString(targetIndex)) :
-                                     new DictEntry(cursor.getInt(0), cursor.getString(targetIndex), cursor.getString(sourceIndex));
+        {
+            cursor.moveToNext();
+            while(words.contains(cursor.getString(cursor.getColumnIndex("source"))))
+                cursor.moveToNext();
+            int sourceIndex = cursor.getColumnIndex("source");
+            int targetIndex = cursor.getColumnIndex("target");
+            DictEntry entry = source ? new DictEntry(cursor.getInt(0), cursor.getString(sourceIndex), cursor.getString(targetIndex)) :
+                    new DictEntry(cursor.getInt(0), cursor.getString(targetIndex), cursor.getString(sourceIndex));
 
-          entries[i] = entry;
-          words.add(entry.getSource());
-          i++;
+            entries[i] = entry;
+            words.add(entry.getSource());
+            i++;
 
-      }
+        }
 
-return entries  ;
+        return entries  ;
     }
     public String getRandomWord(String column)
     {

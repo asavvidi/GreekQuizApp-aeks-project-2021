@@ -39,7 +39,6 @@
 μεγάλος big
 υψηλός high
 όπως such
-ακολουθήστε follow
 πράξη act
 γιατί why
 ρωτήστε ask
@@ -60,7 +59,6 @@
 μητέρα mother
 κόσμο world
 κοντά near
-οικοδομήσουμε build
 αυτο self
 γη earth
 πατέρας father
@@ -312,7 +310,6 @@
 βασιλιά king
 δρόμος street
 ιντσών inch
-πολλαπλασιάστε multiply
 τίποτα nothing
 πορεία course
 μείνετε stay
@@ -320,7 +317,6 @@
 πλήρους full
 δύναμη force
 μπλε blue
-αντικείμενο object
 αποφασίζει decide
 επιφάνεια surface
 βαθιά deep
@@ -468,7 +464,6 @@ drive drive
 αυγό egg
 βόλτα ride
 κυττάρων cell
-πιστεύουμε believe
 ίσως perhaps
 επιλέξτε pick
 ξαφνική sudden
@@ -476,13 +471,11 @@ drive drive
 πλατεία square
 λόγος reason
 μήκος length
-εκπροσωπώ represent
 τέχνη art
 θέμα subject
 περιοχή region
 μέγεθος size
 ποικίλλουν vary
-εγκατασταθούν settle
 μιλούν speak
 βάρος weight
 γενικές general
@@ -490,7 +483,6 @@ drive drive
 θέμα matter
 κύκλο circle
 ζεύγος pair
-περιλαμβάνουν include
 χάσματος divide
 συλλαβή syllable
 αισθάνθηκε felt
