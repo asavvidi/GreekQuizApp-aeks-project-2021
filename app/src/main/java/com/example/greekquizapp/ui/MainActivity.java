@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +16,7 @@ import com.example.greekquizapp.dbcontrol.DictEntry;
 public class MainActivity extends AppCompatActivity {
     private final int entryPool = 50;
     private  DictEntry []  entries;
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,19 @@ public class MainActivity extends AppCompatActivity {
 
         Button b1 = findViewById(R.id.gr);
         Button b2 = findViewById(R.id.en);
+        Button b3 = findViewById(R.id.enterButton);
+        EditText nameInput = findViewById(R.id.editTextTextPersonName);
+        TextView nameHello = findViewById(R.id.nameHello);
+
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                name=nameInput.getText().toString();
+                nameHello.setText("Γεια σου "+ name);
+            }
+        });
+
+
         final Intent intent = new Intent(this,QuestionView.class);
         final DbHelper db = new DbHelper(this);
         if(getIntent().getBooleanExtra("dbCreated",false))

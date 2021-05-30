@@ -26,8 +26,8 @@ public class ScoreView extends Activity {
         int wrong  = getIntent().getIntExtra("wrong",0);
         final DictEntry[] entries = (DictEntry[]) getIntent().getSerializableExtra("entries");
 
-        correctText.setText("T: " + Integer.toString(correct));
-        wrongText.setText("F: " + Integer.toString(wrong));
+        correctText.setText("True: " + Integer.toString(correct));
+        wrongText.setText("False: " + Integer.toString(wrong));
         mainMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
